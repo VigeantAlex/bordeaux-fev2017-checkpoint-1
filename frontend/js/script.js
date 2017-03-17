@@ -4,31 +4,22 @@ document.getElementById("submitbtn").onclick = function(e){
     var citation = document.getElementById("citation").value;
     var episode = document.getElementById("episode").value;
     var saison = document.getElementById("saison").value;
+    var imageurl = document.getElementById("image").value;
     if (saison != "" && citation != "" &&episode != "" &&author != "" ){
     $("#ModalAjout").modal("hide");
-
-    if (document.getElementById("fileupload").files) {
-        
-        var FR= new FileReader();
-        
-        FR.addEventListener("load", function(e) {
-        console.log(e.target.result);
-        }); 
-        
-    }
     var obj = {
         "author": author,
         "chapter": saison,
         "episode": episode,
         "content": citation,
         "date": new Date(),
-        "image": ""
+        "image": imageurl
     }
     console.log(obj);
     var xhr = new XMLHttpRequest();
-	xhr.open('POST', "http://localhost:3000/articles")
+  xhr.open('POST', "http://localhost:3000/articles")
     xhr.setRequestHeader('Content-Type', 'application/json')
-	xhr.send(JSON.stringify(obj));	
+  xhr.send(JSON.stringify(obj));  
     GetArticles();
 
     }
@@ -48,17 +39,17 @@ function GetArticles(){
             }
         }
     }
-	xhr.open('GET', "http://localhost:3000/articles")
-	xhr.send();	
+  xhr.open('GET', "http://localhost:3000/articles")
+  xhr.send(); 
 
 }
 function Delete(_this){
     var target = $(_this).data("target").replace(" ", "");
     $("."+target).remove();
     var xhr = new XMLHttpRequest();
-	xhr.open('DELETE', "http://localhost:3000/articles/" + target.replace("article", ""))
+  xhr.open('DELETE', "http://localhost:3000/articles/" + target.replace("article", ""))
     xhr.setRequestHeader('Content-Type', 'application/json')
-	xhr.send();	
+  xhr.send(); 
 }
 function AddArticles(articles){
     for (objarticle of articles) {
