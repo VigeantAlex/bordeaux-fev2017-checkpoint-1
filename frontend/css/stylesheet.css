@@ -27,7 +27,15 @@
 ==================================================
 \************************************************/
 
-
+nav img{
+  height: 100px;
+}
+.navbar{
+  height: 120px;
+}
+.navbar-brand  span{
+  line-height: 90px;
+}
 /************************************************\
 ==================================================
 3. Citation
@@ -38,7 +46,7 @@
 }
 
 .kaamelott-banner.jumbotron {
-  background-image: url('/img/kaamelott-banner.jpg');
+  background-image: url(../img/kaamelott-banner.jpg);
   background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -75,7 +83,6 @@ p.source {
 }
 
 .thumbnail {
-  height: 420px;
   max-width: 500px;
   margin: auto;
   margin-bottom: 15px;
@@ -110,3 +117,13 @@ blockquote {
 4. Footer
 ==================================================
 \************************************************/
+
+footer{
+  border-top: inset black 1px;
+  height: 30px;
+}
+.centered{
+    margin: auto;
+    display: block;
+    text-align:center;
+}
